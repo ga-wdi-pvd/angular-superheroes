@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="superheroes" lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="./js/superheroes.module.js"></script>
+
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body ng-controller="superheroesCtrl as super heroes">
+  <h1> SuperHeroes</h1>
+  <div class="main">
 
+  </div>
+<div class="search">
+  <h3> Search by name <input type="text" ng-model="superheroes.search"></h3>
+</div>
+<thead>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Group</th>
+  </tr>
+</table>
+<tbody>
+     <tr ng-repeat="superhero in superheros.superheroList | filter: {name: superheros.search}" >
+       <td ng-click="superheros.showSuperhero(superhero.img)"><span>{{superhero.name}}</span></td>
+       <td>{{superhero.number}}</td>
+       <td ng-class="superhero.group.toLowerCase()" >{{superhero.group}}</td>
+     </tr>
+   </tbody>
+ </table>
+
+ </div>
+
+ <div class="picture">
+   <img src="{{superheros.current}}" alt="">
+   <!-- <p>{{superheros.current}}</p> -->
+ </div>
+</div>
   <script src="app.js"></script>
 </body>
 </html>
