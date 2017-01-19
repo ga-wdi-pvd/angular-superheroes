@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="angular-superheroes">
 <head>
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
   <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script src="./js/superheroes.module.js"> </script>
+
 </head>
 <body>
+<h1> Superheroes </h1>
+<div class="main">
 
-  <script src="app.js"></script>
+
+</div>
+<div class="search">
+  <h3> Search by name <input type="text" ng-model="superheroes.search"></h3>
+
+</div>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Nmuber</th>
+    <th>Group</th>
+  </tr>
+
+</table>
+<thead>
+  <tr ng-repeat="superheroes in superheroes.superheroeslist">
+
+  </tr>
+</thead>
 </body>
 </html>
