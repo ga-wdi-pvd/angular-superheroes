@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="superhero">
 <head>
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
   <script src="app.js"></script>
+</head>
+<body ng-controller="superCtrl as super">
+  <h1>superheroes</h1>
+    <div class ="superHero" ng-repeat="hero in super.supers">
+      <p>{{hero.name}}</p>
+      <button ng-click="super.showHero">show hero</button>
+    </div>
+    <input type="search" ng-model="search" placeholder="Search...">
+        <ul>
+            <li ng-repeat="hero in super.supers | filter:search">
+                <div class={{hero.comics_affiliation}}>{{ hero.name }} - {{hero.phone}}</div>
+            </li>
+        </ul>
+
 </body>
 </html>
