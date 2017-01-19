@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="superhero">
 <head>
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
   <link rel="stylesheet" href="style.css">
+<script src="./js/superhero.module.js" charset="utf-8"></script>
+<script src="./js/superhero.controller.js" charset="utf-8"></script>
+<script src="./js/app.js" charset="utf-8"></script>
 </head>
-<body>
-
-  <script src="app.js"></script>
+<body ng-controller='HeroCtrl as main'>
+  <h1>Them Heroes</h1>
 </body>
 </html>
