@@ -13,3 +13,19 @@
 .picture img {
   width: 300px;
 }
+
+.search {
+  text-align: center;
+}
+
+.table {
+  width: 400px;
+}
+
+.main {
+  display: inline-flex;
+}
+
+span {
+  color: blue;
+}

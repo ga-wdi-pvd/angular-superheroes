@@ -1,51 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='superHeroApp'>
 <head>
+
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="superhero.module.js"></script>
   <script src="app.js"></script>
-</body>
-</html>
 
-
-
-
-
-
-
-
-
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Superhero Phonebook</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/app.css">
-  <script src="js/app.js"></script>
+  <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
+
+
+<body ng-controller='superHeroCtrl as superheros'>
   <h1>Superheroes</h1>
-  <div class="picture">
-    Picture:
-  </div>
+
+<div class="main">
+<div>
   <div class="search">
-    Search:
+    <h3>Search by Name:  <input type="text" ng-model="superheros.search"></h3>
+    <!-- <button ng-click="vm.addTodo()">Search</button> -->
+    <!-- <p>{{superheros.search}}</p> -->
   </div>
+
   <table class="table">
-    <thead>
+    <thead >
       <tr>
-        <th>Name:</th>
-        <th>Number:</th>
-        <th></th>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Group</th>
       </tr>
     </thead>
     <tbody>
+      <tr ng-repeat="superhero in superheros.superheroList | filter: {name: superheros.search}" >
+        <td ng-click="superheros.showSuperhero(superhero.img)"><span>{{superhero.name}}</span></td>
+        <td>{{superhero.number}}</td>
+        <td ng-class="superhero.group.toLowerCase()" >{{superhero.group}}</td>
+      </tr>
     </tbody>
   </table>
+
+  </div>
+
+  <div class="picture">
+    <img src="{{superheros.current}}" alt="">
+    <!-- <p>{{superheros.current}}</p> -->
+  </div>
+</div>
+
 </body>
 </html>

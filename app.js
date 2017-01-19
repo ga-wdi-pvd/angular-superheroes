@@ -1,18 +1,17 @@
-
-
-
-
-// todos.controller.js
+// app.js --> Controller
 (function(){
  angular
   .module("superHeroApp")
   .controller("superHeroCtrl", superHeroCtrl);
 
-  // todos-controller.js
+
+// Controller
   function superHeroCtrl () {
     var self = this;
+    self.current = undefined;
 
 
+// Seed Data
     self.superheroList = [
       {
         name: "Spiderman",
@@ -70,18 +69,10 @@
       }
     ];
 
-
-   self.addTodo = function() {
-
-     var todo = {
-       name: self.newTodo,
-       completed: false
-     };
-     self.todos.push(todo);
-     console.log('add to totdo');
+   self.showSuperhero = function(url) {
+      self.current = url;
+      // console.log(self.current);
    };
-
-
 
  }
 
