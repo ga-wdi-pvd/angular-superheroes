@@ -8,16 +8,29 @@
   <link rel="stylesheet" href="style.css">
   <script src="app.js"></script>
 </head>
-<body ng-controller="SuperHero">
+<body ng-controller="SuperHeroCtrl as main">
   <h1>SuperHeroes</h1>
-  <div ng-repeat="SuperHeroes">
-  <h3 ng-click="showSuperHero()">{{name}}</h3>
-</div>
-<div ng-show="SuperHero">
-  <h3>{{SuperHero.name}}</h3>
-  <h5>{{SuperHero.params}}</h5>
-  <button ng-click="destroySuperHero(superHero.id)">Delete SuperHero</button>
-  <img src="{{superHero.img}}" alt="photo">
+
+  <div ng-repeat="SuperHero in superHeroList">
+  <button ng-click="getSuperHeroes()">{{/superHeroList}}</button>
+  <!--<div ng-show="SuperHero" ng-model="SuperHero"> -->
+    <h3>{{SuperHero.name}}</h3>
+    <h5>{{ SuperHero | number:, group:, img:}}</h5>
+    <button ng-click="destroySuperHero(superHero.id)">Delete SuperHero</button>
+  <!--   <img src="{{superHero.img}}" alt="photo"> -->
+  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>Number:</th>
+      <th>Group:</th>
+      <th>img:</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 </div>
 <form ng-show="superHero" ng-submit="editSuperHero(superHero)">
   <h4>Edit SuperHero</h4>
@@ -43,5 +56,7 @@
   <input type="text" ng-model="newSuperHero.img"><br>
   <input type="submit" value="Submit">
 </form>
+
+
 </body>
 </html>

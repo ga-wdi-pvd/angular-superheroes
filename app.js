@@ -1,3 +1,4 @@
+
 (function(){
   angular
   .module('superHero')
@@ -72,12 +73,9 @@ $scope.createSuperHero= function(id){
         if(err)console.log(err);
       });
     };
+};
 
- }
-
-})();
-
-var superHero = [
+var superHeroList = [
   {
     name: "Alyssa",
     number: "800-923-3587",
