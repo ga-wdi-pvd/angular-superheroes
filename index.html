@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="superHeroPhonebook"lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
   <script src="app.js"></script>
+</head>
+<body ng-controller="SuperHero">
+  <h1>SuperHeroes</h1>
+  <div ng-repeat="SuperHeroes">
+  <h3 ng-click="showSuperHero()">{{name}}</h3>
+</div>
+<div ng-show="SuperHero">
+  <h3>{{SuperHero.name}}</h3>
+  <h5>{{SuperHero.params}}</h5>
+  <button ng-click="destroySuperHero(superHero.id)">Delete SuperHero</button>
+  <img src="{{superHero.img}}" alt="photo">
+</div>
+<form ng-show="superHero" ng-submit="editSuperHero(superHero)">
+  <h4>Edit SuperHero</h4>
+  <label for="Name">Name</label><br>
+  <input type="text" ng-model="superHero.name"><br>
+  <label for="number">Number</label><br>
+  <input type="text" ng-model="superHero.number"><br>
+  <label for="group">Group</label><br>
+  <input type="text" ng-model="superHero.group"><br>
+  <label for="photoUrl">Photo URL</label><br>
+  <input type="text" ng-model="superHero.img"><br>
+  <input type="submit" value="Submit">
+</form>
+  <form ng-hide="superHero" ng-submit="createSuperHero(newSuperHero)">
+  <h4>New SuperHero</h4>
+  <label for="Name">Name</label><br>
+  <input type="text" ng-model="newSuperHero.name"><br>
+  <label for="number">Number</label><br>
+  <input type="text" ng-model="newSuperHero.number"><br>
+  <label for="group">Group</label><br>
+  <input type="text" ng-model="newSuperHero.group"><br>
+  <label for="photoUrl">Photo URL</label><br>
+  <input type="text" ng-model="newSuperHero.img"><br>
+  <input type="submit" value="Submit">
+</form>
 </body>
 </html>
