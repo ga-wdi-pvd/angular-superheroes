@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head ng-app="superhero">
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script src="./js/superhero.module.js" charset="utf-8"></script>
+  <script src="./js/superhero.controller.js" charset="utf-8"></script>
 
-  <script src="app.js"></script>
+</head>
+<body ng-controller="HeroCtrl as main">
+  
+  <h1>Superheroes</h1>
+
+  <div ng-repeat="hero in main.heroes">
+
+  </div>
+
+
 </body>
 </html>
